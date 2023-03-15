@@ -39,7 +39,12 @@ function drawScore() {
     ctx.font = "24px Arial";
     ctx.fillText("Name: " + name, 10, 60);
   }
-  
+
+  function drawInst() {
+    ctx.fillStyle = "black";
+    ctx.font = "24px Arial";
+    ctx.fillText("(use arrow keys)", 10, 90);
+  }
 
   
 
@@ -201,6 +206,7 @@ function gameLoop() {
     // Draw the score
     drawScore();
     drawName("Satyavanth");
+    drawInst();
   
   // Set timeout for the next loop iteration
   setTimeout(gameLoop, 100);
