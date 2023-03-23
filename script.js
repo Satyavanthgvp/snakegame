@@ -215,5 +215,40 @@ function gameLoop() {
 // Add event listener for key presses
 document.addEventListener("keydown", handleKeyPress);
 
+
+
+
+
+//23-03-23
+let highScore = 0;
+
+function drawScore() {
+    ctx.fillStyle = "black";
+    ctx.font = "24px Arial";
+    ctx.fillText("Score: " + score, 10, 30);
+
+    if (score > highScore) {
+        highScore = score;
+    }
+    ctx.fillText("High Score: " + highScore, 300, 60);
+}
+
+function saveHighScore() {
+    localStorage.setItem("snakeHighScore", highScore);
+}
+
+
+function loadHighScore() {
+    const savedHighScore = localStorage.getItem("snakeHighScore");
+    if (savedHighScore !== null) {
+        highScore = parseInt(savedHighScore);
+    }
+}
+
+
+loadHighScore();
+
+saveHighScore();
+
 // Start the game loop
 gameLoop();
